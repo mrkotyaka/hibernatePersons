@@ -29,15 +29,21 @@ public class HibernatePersonsApplication implements CommandLineRunner {
         pers.add(Person.builder()
                 .name("John")
                 .surname("Snow")
-                .city_of_living("Moscow")
+                .cityOfLiving("Moscow")
                 .age(38)
-                .phone_number("987654321").build());
+                .phoneNumber("987654321").build());
         pers.add(Person.builder()
                 .name("Sam")
                 .surname("Rockwell")
-                .city_of_living("Moscow")
+                .cityOfLiving("Moscow")
                 .age(44)
-                .phone_number("123456789").build());
+                .phoneNumber("123456789").build());
+        pers.add(Person.builder()
+                .name("Jack")
+                .surname("Black")
+                .cityOfLiving("Ufa")
+                .age(20)
+                .phoneNumber("875875875").build());
         pers.forEach(persons -> em.persist(persons));
     }
 }

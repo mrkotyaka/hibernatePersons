@@ -1,15 +1,13 @@
 package ru.mrkotyaka.hibernatepersons.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
-@Data
+@Setter
+@Getter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -29,9 +27,9 @@ public class Person {
     @Min(0)
     private int age;
 
-    @Column(nullable = false)
-    private String phone_number;
+    @Column(name = "phone_number", nullable = false)
+    private String phoneNumber;
 
-    @Column(nullable = false)
-    private String city_of_living;
+    @Column(name = "city_of_living", nullable = false)
+    private String cityOfLiving;
 }

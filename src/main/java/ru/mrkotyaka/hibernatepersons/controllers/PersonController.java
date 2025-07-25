@@ -7,6 +7,7 @@ import ru.mrkotyaka.hibernatepersons.entities.Person;
 import ru.mrkotyaka.hibernatepersons.repositories.PersonRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PersonController {
@@ -18,7 +19,17 @@ public class PersonController {
     }
 
     @GetMapping("/persons/by-city")
-    public List<Person> getPersonsByCity(@RequestParam String city) {
-        return personRepository.getPersonsByCity(city);
+    public List<Person> getPersonsByCityOfLiving(@RequestParam String city) {
+        return personRepository.findByCityOfLiving(city);
+    }
+
+    @GetMapping("/persons/less-age")
+    public List<Person> getPersonsThatAgeLessThanAndSortedByAge(@RequestParam int age) {
+        return personRepository.findByAgeLessThanOrderByAge(age);
+    }
+
+    @GetMapping("/persons/by-name-surname")
+    public Optional<List<Person>> getPersonByNameAndSurname(@RequestParam String name, String surname) {
+        return personRepository.findByNameAndSurname(name, surname);
     }
 }
