@@ -1,12 +1,12 @@
 package ru.mrkotyaka.hibernatepersons.controllers;
 
 import jakarta.annotation.security.RolesAllowed;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.mrkotyaka.hibernatepersons.entities.Person;
 import ru.mrkotyaka.hibernatepersons.repositories.PersonRepository;
-import ru.mrkotyaka.hibernatepersons.services.PersonService;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,17 +16,18 @@ import java.util.Optional;
 public class PersonControllerSecurityMethod {
 
     private final PersonRepository personRepository;
-    private final PersonService personService;
 
-    public PersonControllerSecurityMethod(PersonRepository personRepository, PersonService personService) {
+    public PersonControllerSecurityMethod(PersonRepository personRepository) {
         this.personRepository = personRepository;
-        this.personService = personService;
     }
 
-    @GetMapping("/{username}/greetings")
-    public String getGreetingsUserSM(@PathVariable String username) {
-        return personService.greetingUserSM(username);
+    @GetMapping("/greetings")
+    @PreAuthorize("#username == authentication.principal.username")
+    public ResponseEntity<?> getGreetingsUserSM(@RequestParam String username    ) {
+        return ResponseEntity.ok("Greetings, my younger java developer, " + username);
     }
+
+
 
     @GetMapping("/city/{city}")
     @PreAuthorize("hasAnyRole('ROLE_WRITE', 'ROLE_DELETE')")

@@ -27,7 +27,7 @@
 
 ### Security над Методами:
 #### С авторизацией:
-- http://localhost:8080/secured_methods/user/greetings (проверка username)
+- http://localhost:8080/secured_methods/greetings?username=admin (проверка username)
 - http://localhost:8080/secured_methods/city/Moscow (@PreAuthorize("hasAnyRole('ROLE_WRITE', 'ROLE_DELETE')"))
 - http://localhost:8080/secured_methods/age/38 (@Secured("ROLE_READ"))
 - http://localhost:8080/secured_methods/delete/80 (@RolesAllowed("ROLE_DELETE"))
