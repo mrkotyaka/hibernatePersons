@@ -24,17 +24,18 @@
 
 - http://localhost:8080/logout
 
-### С авторизацией:
-#### Новое решение:
+
+### Security над Методами:
+#### С авторизацией:
 - http://localhost:8080/secured_methods/user/greetings (проверка username)
 - http://localhost:8080/secured_methods/city/Moscow (@PreAuthorize("hasAnyRole('ROLE_WRITE', 'ROLE_DELETE')"))
 - http://localhost:8080/secured_methods/age/38 (@Secured("ROLE_READ"))
 - http://localhost:8080/secured_methods/delete/80 (@RolesAllowed("ROLE_DELETE"))
 
-#### Старое решение:
-1. Без авторизации
+### Старое решение Security в конфиге:
+#### Без авторизации
 - http://localhost:8080/persons/by-city?city=Moscow
-2. С Авторизацией:
+#### С Авторизацией:
 - http://localhost:8080/persons/less-age?age=38 (требуется роль на чтение)
 - http://localhost:8080/persons/by-name-surname?name=John&surname=Snow (требуется роль на запись)
 - http://localhost:8080/persons/getmyname (требуется роль "super")
