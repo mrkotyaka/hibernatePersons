@@ -27,7 +27,6 @@ public class PersonControllerSecurityMethod {
         return ResponseEntity.ok("Greetings, my younger java developer, " + username);
     }
 
-
     @GetMapping("/city/{city}")
     @PreAuthorize("hasAnyRole('ROLE_WRITE', 'ROLE_DELETE')")
     public List<Person> getPersonsByCityOfLivingSM(@PathVariable String city) {
@@ -42,7 +41,6 @@ public class PersonControllerSecurityMethod {
 
     @DeleteMapping("/delete/{id}")
     @Secured("ROLE_DELETE")
-//    @RolesAllowed("ROLE_DELETE")
     public String deletePersonSM(@PathVariable int id) {
         Optional<Person> person = personRepository.findById(id);
         if (person.isPresent()) {
