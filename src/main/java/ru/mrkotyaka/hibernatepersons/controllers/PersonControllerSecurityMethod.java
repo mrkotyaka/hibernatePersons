@@ -23,10 +23,9 @@ public class PersonControllerSecurityMethod {
 
     @GetMapping("/greetings")
     @PreAuthorize("#username == authentication.principal.username")
-    public ResponseEntity<?> getGreetingsUserSM(@RequestParam String username    ) {
+    public ResponseEntity<?> getGreetingsUserSM(@RequestParam String username) {
         return ResponseEntity.ok("Greetings, my younger java developer, " + username);
     }
-
 
 
     @GetMapping("/city/{city}")
