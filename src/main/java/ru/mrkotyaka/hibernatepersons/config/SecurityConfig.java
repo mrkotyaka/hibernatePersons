@@ -3,6 +3,7 @@ package ru.mrkotyaka.hibernatepersons.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfig {
 
     @Bean
@@ -24,9 +26,9 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/persons/by-city").permitAll()
-                        .requestMatchers("/persons/less-age").hasRole("read")
-                        .requestMatchers("/persons/by-name-surname").hasRole("write")
-                        .requestMatchers("/persons/getmyname").hasRole("super")
+                        .requestMatchers("/persons/less-age").hasRole("READ")
+                        .requestMatchers("/persons/by-name-surname").hasRole("WRITE")
+                        .requestMatchers("/persons/getmyname").hasRole("SUPER")
                         .anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults())
                 .logout(Customizer.withDefaults());
@@ -39,17 +41,17 @@ public class SecurityConfig {
         UserDetails user = User
                 .withUsername("user")
                 .password(passwordEncoder().encode("userpass"))
-                .roles("read")
+                .roles("READ")
                 .build();
         UserDetails somebody = User
                 .withUsername("somebody")
                 .password(passwordEncoder().encode("somebodypass"))
-                .roles("write", "read")
+                .roles("WRITE")
                 .build();
         UserDetails admin = User
                 .withUsername("admin")
                 .password(passwordEncoder().encode("adminpass"))
-                .roles("super", "write", "read")
+                .roles("DELETE", "WRITE", "READ", "SUPER")
                 .build();
 
         List<UserDetails> users = List.of(user, somebody, admin);
