@@ -1,18 +1,18 @@
-# Задача «Слой DAO c JPA Repositories»
+# Task: “DAO Layer with JPA Repositories”
 
-## Описание
+## Description
 
-Попрактикуемся в работе с JPA Repositories, переписав приложение для работы с БД [«Слой DAO c Hibernate»](https://github.com/mrkotyaka/hibernatePersons/blob/main/readme.md).
+Let's practice working with JPA Repositories by rewriting the application for working with the database [“DAO Layer with Hibernate”](https://github.com/mrkotyaka/hibernatePersons/blob/main/readme.md).
 
-**Что нужно сделать**
+**What you need to do**
 
-1. Перепишите репозиторий для работы с БД на основе методов-запросов:
+1. Rewrite the repository for working with the database based on query methods:
 
-- чтобы у вашего репозитория были основные методы для `CRUD` операций;
-- создайте метод, который будет принимать название города (`city`) и возвращать `Entity` из базы данных, которые соответствуют этому `city`;
-- создайте метод, который будет принимать возраст (`age`) и возвращать `Entity` из базы данных, которые меньше переданного `age` и отсортированы по возрастанию;
-- создайте метод, который будет принимать имя и фамилию (`name` и `surname`) и возвращать `Entity` из базы данных, которые соответствуют сочетанию `name` и `surname` и являются `Optional`.
+- Make sure your repository has the basic methods for CRUD operations.
+- create a method that will accept the name of the city (`city`) and return `Entity` from the database that correspond to this `city`;
+- create a method that will accept age (`age`) and return `Entity` from the database that are less than the passed `age` and sorted in ascending order;
+- Create a method that will accept the first and last name (`name` and `surname`) and return `Entity` from the database that match the combination of `name` and `surname` and are `Optional`.
 
-2. Допишите недостающие методы контроллера в соответствии с появившимися новыми методами в репозитории.
+2. Add the missing controller methods in accordance with the new methods that appeared in the repository.
 
-3. Написанный код выложите в тот же репозиторий, что и для задачи [«Слой DAO c Hibernate»](https://github.com/mrkotyaka/hibernatePersons/blob/main/readme.md) на GitHub, только создайте под него другую ветку `jpa-repository` и прикрепите ссылку на неё в комментарий к домашнему заданию.
+3. Upload the written code to the same repository as for task [“DAO layer with Hibernate”] (https://github.com/mrkotyaka/hibernatePersons/blob/main/readme.md) on GitHub, but create a different branch `jpa-repository` for it and attach a link to it in the comment to your homework assignment.
