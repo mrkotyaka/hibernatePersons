@@ -1,25 +1,25 @@
-# Задача «Безопасное приложение»
+# Secure Application Task
 
-## Описание
+## Description
 
-Сегодня вы попрактикуетесь в обеспечении безопасности для приложений. Вы ограничите доступ к endpoint.
+Today, you will practice securing applications. You will restrict access to endpoints.
 
-1. Возьмите любое из уже реализованных приложений на `Spring Boot`, где есть контроллер и не менее одного метода-обработчика запросов на разные endpoint.
+1. Take any of the already implemented applications on Spring Boot that has a controller and at least one method that handles requests to different endpoints.
 
-2. Добавьте в приложение зависимость на `spring-boot-starter-security`.
+2. Add a dependency on `spring-boot-starter-security` to the application.
 
-3. Реализуйте класс-наследник `WebSecurityConfigurerAdapter` так, чтобы:
+3. Implement a class that inherits from `WebSecurityConfigurerAdapter` so that:
 
-- пользователь логинился через стандартную форму логина от Spring;
-- как минимум на один из endpoint вашего приложения можно было попасть без авторизации, а на все остальные — только после авторизации.
+- the user logs in using the standard Spring login form;
+- at least one of your application's endpoints can be accessed without authorization, while all others can only be accessed after authorization.
 
-4. Запуште изменения в репозиторий и прикрепите ссылку на него в комментарий к домашнему заданию.
+4. Push the changes to the repository and attach a link to it in the comments to your homework assignment.
 
-## Проверочные URLs:
+## Verification URLs:
 
-1. Без авторизации:
+1. Without authorization:
 - http://localhost:8080/persons/by-city?city=Moscow
-2. С авторизацией:
-- http://localhost:8080/persons/less-age?age=38 (требуется роль на чтение)
-- http://localhost:8080/persons/by-name-surname?name=John&surname=Snow (требуется роль на запись)
-- http://localhost:8080/persons/getmyname (требуется роль "super")
+2. With authorization:
+- http://localhost:8080/persons/less-age?age=38 (read role required)
+- http://localhost:8080/persons/by-name-surname?name=John&surname=Snow (requires write role)
+- http://localhost:8080/persons/getmyname (requires “super” role)
