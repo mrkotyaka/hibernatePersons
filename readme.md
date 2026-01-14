@@ -1,41 +1,40 @@
-# Задача «Безопасные методы»
+# Task: “Secure Methods”
 
-## Описание
+## Description
 
-Сегодня вы попрактикуетесь в обеспечении безопасности для приложений на уровне методов.
+Today, you will practice securing applications at the method level.
 
-1. Возьмите приложением из [прошлого домашнего задания](../../spring_security/task1/README.md).
+1. Take the application from [the previous homework assignment](../../spring_security/task1/README.md).
 
-2. Добавьте несколько пользователей с разными набором ролей: "READ", "WRITE", "DELETE".
+2. Add several users with different sets of roles: “READ,” “WRITE,” and “DELETE.”
 
-3. Добавьте возможность ограничивать безопасность на уровне методов с помощью всех трёх типов аннотаций.
+3. Add the ability to restrict security at the method level using all three types of annotations.
 
-4. Напишите новый контроллер, в котором:
+4. Write a new controller in which:
 
-- один из методов возвращает значения только для пользователей с ролью "READ" (используйте `@Secured`);
-- один из методов возвращает значения только для пользователей с ролью "WRITE" (используйте `@RolesAllowed`);
-- один из методов возвращает значения, если у пользователя есть хотя бы одна из ролей из "WRITE", "DELETE" (используйте `pre`/`post` аннотации);
-- один из методов, который принимает в качестве query-параметра имя пользователя (`username`), должен возвращает значения, только если у пользователя `username` совпадает с именем пользователя в вашем объекте `Authentication`, который `Spring security` сохраняет в `SecurityContextHolder` после успешной аутентификации.
+- one of the methods returns values only for users with the “READ” role (use `@Secured`);
+- one of the methods returns values only for users with the “WRITE” role (use `@RolesAllowed`);
+- one of the methods returns values if the user has at least one of the roles “WRITE” or “DELETE” (use `pre`/`post` annotations);
+- One of the methods that accepts a username (`username`) as a query parameter should return values only if the user's `username` matches the username in your `Authentication` object, which `Spring security` stores in `SecurityContextHolder` after successful authentication.
 
-5. Запуште изменения в репозиторий и прикрепите ссылку на него в комментарий к домашнему заданию.
+5. Push the changes to the repository and attach a link to it in the comment to your homework assignment.
 
 
-## Проверочные URLs:
+## Verification URLs:
 
 - http://localhost:8080/logout
 
+### Security over Methods:
+#### With Authorization:
+- http://localhost:8080/secured_methods/greetings?username=admin (username verification)
+- http://localhost:8080/secured_methods/city/Moscow (@PreAuthorize(“hasAnyRole(‘ROLE_WRITE’, ‘ROLE_DELETE’)”))
+- http://localhost:8080/secured_methods/age/38 (@Secured(“ROLE_READ”))
+- http://localhost:8080/secured_methods/delete/80 (@RolesAllowed(“ROLE_DELETE”))
 
-### Security над Методами:
-#### С авторизацией:
-- http://localhost:8080/secured_methods/greetings?username=admin (проверка username)
-- http://localhost:8080/secured_methods/city/Moscow (@PreAuthorize("hasAnyRole('ROLE_WRITE', 'ROLE_DELETE')"))
-- http://localhost:8080/secured_methods/age/38 (@Secured("ROLE_READ"))
-- http://localhost:8080/secured_methods/delete/80 (@RolesAllowed("ROLE_DELETE"))
-
-### Старое решение Security в конфиге:
-#### Без авторизации
+### Old Security solution in config:
+#### Without authorization
 - http://localhost:8080/persons/by-city?city=Moscow
-#### С Авторизацией:
-- http://localhost:8080/persons/less-age?age=38 (требуется роль на чтение)
-- http://localhost:8080/persons/by-name-surname?name=John&surname=Snow (требуется роль на запись)
-- http://localhost:8080/persons/getmyname (требуется роль "super")
+#### With authorization:
+- http://localhost:8080/persons/less-age?age=38 (read role required)
+- http://localhost:8080/persons/by-name-surname?name=John&surname=Snow (requires write role)
+- http://localhost:8080/persons/getmyname (requires “super” role)
