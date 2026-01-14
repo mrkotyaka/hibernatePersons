@@ -1,11 +1,11 @@
-# Задача «Миграции c Hibernate*» (задача со звёздочкой)
+# Task “Migrations with Hibernate*” (task marked with an asterisk)
 
-## Описание
+## Description
 
-Эта задача необязательная, её выполнение не влияет на получение зачёта.
+This task is optional; completing it does not affect your grade.
 
-Настало время попрактиковаться в работе с механизмами миграции в Hibernate.
+It's time to practice working with migration mechanisms in Hibernate.
 
-**Что нужно сделать**
+**What you need to do**
 
-1. Адаптируйте логику работы задания [«Слой DAO c Hibernate»](https://github.com/mrkotyaka/hibernatePersons/blob/main/readme.md) так, чтобы ваше приложение работало одновременно и с миграциями, и с Hibernate. Не важно, выберете вы Flyway или Liquibase.
+1. Adapt the logic of the task [“DAO Layer with Hibernate”](https://github.com/mrkotyaka/hibernatePersons/blob/main/readme.md) so that your application works with both migrations and Hibernate. It doesn't matter whether you choose Flyway or Liquibase.
