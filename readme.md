@@ -1,14 +1,14 @@
-# Задача «@Query*» (задача со звёздочкой)
+# Task “@Query*” (task with an asterisk)
 
-## Описание
+## Description
 
-Эта задача необязательная, её выполнение не влияет на получение зачёта.
+This task is optional and does not affect your grade.
 
-Перепишем приложение из [первого задания](https://github.com/mrkotyaka/hibernatePersons/blob/jpa-repository/readme.md) на запросы с помощью аннотации `@Query`.
+Let's rewrite the application from [the first task](https://github.com/mrkotyaka/hibernatePersons/blob/jpa-repository/readme.md) to use queries with the `@Query` annotation.
 
 
-**Что нужно сделать**
+**What you need to do**
 
-1. Вам необходимо переписать код из [первого задания](https://github.com/mrkotyaka/hibernatePersons/blob/jpa-repository/readme.md), чтобы он теперь работал не через методы-запросы, а через запросы в аннотации `@Query` и язык `JPQL`.
+1. You need to rewrite the code from [the first task](https://github.com/mrkotyaka/hibernatePersons/blob/jpa-repository/readme.md) so that it now works not through query methods, but through queries in the `@Query` annotation and the `JPQL` language.
 
-2. Написанный код выложите в тот же репозиторий, что и для задачи [«Слой DAO c Hibernate»](https://github.com/mrkotyaka/hibernatePersons/blob/main/readme.md) на GitHub, только создайте под него другую ветку `jpa-repository-query` и прикрепите ссылку на неё в комментарий к домашнему заданию.
+2. Upload the written code to the same repository as for the task [“DAO layer with Hibernate”] (https://github.com/mrkotyaka/hibernatePersons/blob/main/readme.md) on GitHub, but create a separate branch for it called `jpa-repository-query` and attach a link to it in the comments to your homework assignment.
