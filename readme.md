@@ -1,24 +1,24 @@
-# Задача «Слой DAO c Hibernate»
+# Task: “DAO Layer with Hibernate”
 
-## Описание
+## Description
 
-Попрактикуемся в работе с Hibernate через Spring, параллельно закрепляя уже пройденные темы.
+Let's practice working with Hibernate through Spring, while reinforcing topics we have already covered.
 
-Вам надо написать приложение для работы с БД, используя средства Spring по конфигурации и работе с Hibernate, адаптировав таблицы из задания [«Таблица пользователей»](https://github.com/netology-code/jd-homeworks/blob/master/sql-basic/task/README.md).
+You need to write an application for working with a database using Spring tools for configuration and working with Hibernate, adapting the tables from the task [“User Table”](https://github.com/netology-code/jd-homeworks/blob/master/sql-basic/task/README.md).
 
-**Что нужно сделать**
+**What you need to do**
 
-1. Создайте Spring Boot приложение с зависимостями на два стартера — `spring-boot-starter-data-jpa` и `spring-boot-starter-web`.
+1. Create a Spring Boot application with dependencies on two starters — `spring-boot-starter-data-jpa` and `spring-boot-starter-web`.
 
-2. Создайте Entity, которая соответствует таблице из условий задачи [«Таблица пользователей»](https://github.com/netology-code/jd-homeworks/blob/master/sql-basic/task/README.md).
+2. Create an Entity that corresponds to the table from the task conditions [“User Table”](https://github.com/netology-code/jd-homeworks/blob/master/sql-basic/task/README.md).
 
-3. Напишите репозиторий для работы с БД.
+3. Write a repository for working with the database.
 
-- создайте класс и пометьте его аннотацией Repository, либо создайте бин репозитория в Java Config классе;
-- правильно инжектируйте EntityManager;
-- создайте метод `getPersonsByCity(String city)`, который будет принимать название города и возвращать ваше Entity из базы данных, соответствующие этому `city`. Сделать это можно, например, получив всех пользователей и отфильтровав их по городу.
+- Create a class and mark it with the Repository annotation, or create a repository bean in the Java Config class.
+- Inject EntityManager correctly.
+- Create a method `getPersonsByCity(String city)` that will take the city name and return your Entity from the database corresponding to this `city`. This can be done, for example, by getting all users and filtering them by city.
 
-4. Напишите контроллер с методом-обработчиком GET-метода запроса с маппингом на endpoint `/persons/by-city`. В query params запроса будет приходить строковый параметр `city`, который вам надо будет передавать дальше в репозиторий. То есть, ваш метод должен уметь обрабатывать запрос вида `localhost:8080/persons/by-city?city=Moscow`.
-   Контроллер должен будет возвращать всех людей, которых он получит от репозитория.
+4. Write a controller with a GET request handler method mapped to the endpoint `/persons/by-city`. The query params of the request will contain a string parameter `city`, which you will need to pass on to the repository. That is, your method must be able to handle a request of the form `localhost:8080/persons/by-city?city=Moscow`.
+   The controller must return all the people it receives from the repository.
 
-5. Написанные код выложите в отдельный репозиторий на GitHub и прикрепите ссылку на него в комментарий к домашнему заданию.
+5. Post the code you wrote to a separate repository on GitHub and attach a link to it in the comments to your homework assignment.
